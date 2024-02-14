@@ -131,6 +131,20 @@ Config.prototype.configure = function configure (config) {
   this.realmUrl = this.authServerUrl + '/realms/' + this.realm
 
   /**
+   * Backend authentication server URL. This is useful when you need to call keycloak internally between different services and not through the public URL.
+   * Defaults to the public URL.
+   * @type {String}
+   */
+  this.backendAuthServerUrl = resolveValue(config['backend-auth-server-url'] || config.backendAuthServerUrl || this.authServerUrl)
+
+  /**
+   * Backend realm URL.
+   * @type {String}
+  */
+  this.backendRealmUrl = this.backendAuthServerUrl + '/realms/' + this.realm
+  
+
+  /**
    * Root realm admin URL.
    * @type {String} */
   this.realmAdminUrl = this.authServerUrl + '/admin/realms/' + this.realm
