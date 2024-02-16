@@ -502,7 +502,7 @@ const validationHandler = (manager, token) => (resolve, reject, json) => {
 
 const postOptions = (manager, path) => {
   const realPath = path || '/protocol/openid-connect/token'
-  const opts = URL.parse(manager.realmUrl + realPath); // eslint-disable-line
+  const opts = URL.parse(manager.backendRealmUrl + realPath); // eslint-disable-line
   opts.headers = {
     'Content-Type': 'application/x-www-form-urlencoded',
     'X-Client': 'keycloak-nodejs-connect'
